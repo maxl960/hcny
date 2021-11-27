@@ -46,6 +46,11 @@ export default [
                     },
                 ]
             },
+            {
+                name: '测试',
+                path: '/test',
+                component: '@/pages/test/index',
+            },
         ]
     },
     {

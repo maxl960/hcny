@@ -14,8 +14,12 @@ export default function IndexPage(props) {
             data: params,
         }).then((res) => {
             if (method == 'login') {
+                // console.log(request.extendOptions)
                 request.extendOptions({ headers: { 'Authorization': res.token } });
                 // cookie.save('user', res);
+                request.get('/index/testSql', {}).then(res => {
+                    console.log(res)
+                })
             }
         })
     }

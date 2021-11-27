@@ -10,7 +10,7 @@ export default function IndexPage(props) {
         console.log('modal')
     }
     useEffect(() => {
-        console.log(route)
+        // console.log(route)
     })
     return (
         <ProLayout

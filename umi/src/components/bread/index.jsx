@@ -8,18 +8,23 @@ const getPath = (key, menu) => {
     if (!key) return path;
     function getObj(obj) {
         if (!obj) return false
-        return obj.map((item) => {
+        let arr = obj.map((item) => {
             let p = getObj(item.routes)
-            if (p || item.path == key) {
-                if (!item.flatMenu) path.unshift(item)
-                return true
+            if (item.path == key || p) {
+                if (!item.flatMenu) {
+                    path.unshift(item)
+                    return true
+                } else {
+                    return false
+                }
             } else {
                 return false
             }
         })
+        return arr.find((val) => { return val == true })
     }
-    console.log(menu)
     getObj(menu)
+    console.log(path)
     return path
 }
 export default class Bread extends Component {
@@ -44,8 +49,9 @@ export default class Bread extends Component {
     breadList = (key) => {
         let route = getPath(key, this.state.routes);
         console.log(route)
-        return route.map(item => {
-            return (<Breadcrumb.Item key={item.key}><a href={item.path}>{item.name}</a></Breadcrumb.Item>)
+        return route.map((item, index) => {
+            // console.log(item)
+            return (<Breadcrumb.Item key={index}><a href={item.path}>{item.name}</a></Breadcrumb.Item>)
         })
     }
     render() {
