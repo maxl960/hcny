@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
-import { Link } from 'umi';
+import { Link, connect } from 'umi';
 import routes from '../../config/routes'
 import Bread from '../components/bread';
 
-export default function IndexPage(props) {
+function IndexPage(props) {
     const { route, children } = props
     const toggleModal = () => {
         console.log('modal')
     }
     useEffect(() => {
-        // console.log(route)
+        console.log(props)
     })
     return (
         <ProLayout
@@ -41,3 +41,5 @@ export default function IndexPage(props) {
         </ProLayout>
     );
 }
+
+export default connect(({ user }) => ({ user }))(IndexPage);

@@ -125,7 +125,7 @@ export default function IndexPage(props) {
         }
     }
     useEffect(() => {
-        // console.log(self)
+        console.log(props)
         if (match.params.method) setMethod(match.params.method)
     })
     return (

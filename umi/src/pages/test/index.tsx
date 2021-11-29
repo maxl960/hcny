@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Forms from '@/components/form';
-import { history, connect } from 'umi';
+import { Form, Table } from '@/components/';
+import { history, connect, useModel } from 'umi';
 
 const Role = (props) => {
     // const { dispatch, form } = props;
@@ -26,11 +27,12 @@ const Role = (props) => {
         }
     }
     useEffect(() => {
-        console.log(form)
-    }, [form])
+        console.log(props)
+    }, [])
     return (
         <div>
-            <Forms {...props} data={data} />
+            <Form {...props} data={data} />
+            <Table />
         </div>
     )
 }
